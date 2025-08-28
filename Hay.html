@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil Siswa</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(-45deg, #4facfe, #00f2fe, #43e97b, #38f9d7);
+      background-size: 400% 400%;
+      animation: gradient 10s ease infinite;
+      display: flex; justify-content: center; align-items: center;
+      min-height: 100vh; margin: 0;
+    }
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .profile {
+      background: #fff; padding: 30px;
+      border-radius: 15px; box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      text-align: center; max-width: 500px; width: 100%;
+    }
+    .profile img {
+      width: 120px; height: 120px; border-radius: 50%;
+      border: 4px solid #4facfe; margin-bottom: 15px;
+      object-fit: cover;
+    }
+    h2 { margin: 10px 0; color: #333; }
+    p { margin: 5px 0; color: #555; }
+  </style>
+</head>
+<body>
+  <div class="profile">
+    <img id="pFoto" src="https://via.placeholder.com/120" alt="Foto Profil">
+    <h2 id="pNama"></h2>
+    <p><b>Jenis Kelamin:</b> <span id="pJk"></span></p>
+    <p><b>Agama:</b> <span id="pAgama"></span></p>
+    <p><b>TTL:</b> <span id="pTtl"></span></p>
+    <p><b>Alamat:</b> <span id="pAlamat"></span></p>
+    <p><b>Asal Sekolah:</b> <span id="pAsal"></span></p>
+    <p><b>No. HP Ortu:</b> <span id="pHp"></span></p>
+  </div>
+
+  <script>
+    document.getElementById("pNama").innerText = localStorage.getItem("nama");
+    document.getElementById("pJk").innerText = localStorage.getItem("jk");
+    document.getElementById("pAgama").innerText = localStorage.getItem("agama");
+    document.getElementById("pTtl").innerText = localStorage.getItem("ttl");
+    document.getElementById("pAlamat").innerText = localStorage.getItem("alamat");
+    document.getElementById("pAsal").innerText = localStorage.getItem("asal");
+    document.getElementById("pHp").innerText = localStorage.getItem("hp");
+
+    // tampilkan foto profil
+    const foto = localStorage.getItem("foto");
+    if (foto) {
+      document.getElementById("pFoto").src = foto;
+    }
+  </script>
+</body>
+</html>
